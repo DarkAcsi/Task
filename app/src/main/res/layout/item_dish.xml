@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="16dp">
+
+    <ImageView
+        android:id="@+id/imageDish"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageDish"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nameDish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textColor="#222831"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Ветчина и грибы" />
+
+        <TextView
+            android:id="@+id/compositionDish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textColor="@color/back_color_text"
+            android:textSize="14sp"
+            tools:text="Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус" />
+
+        <TextView
+            android:id="@+id/priceDish"
+            android:layout_width="87dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:background="@drawable/shape_price"
+            android:gravity="center"
+            android:textColor="@color/main_color"
+            tools:text="от 345 р" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
