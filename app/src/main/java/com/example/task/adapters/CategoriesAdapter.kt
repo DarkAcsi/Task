@@ -70,7 +70,7 @@ class CategoriesAdapter(val context: Context, private val categoryListener: Cate
                 nameCategory.setTextColor(ContextCompat.getColor(context, R.color.main_color))
                 nameCategory.setBackgroundResource(R.drawable.shape_radius6_main)
             } else {
-                nameCategory.setTextColor(ContextCompat.getColor(context, R.color.back_color_text))
+                nameCategory.setTextColor(ContextCompat.getColor(context, R.color.back_color))
                 nameCategory.setBackgroundResource(R.drawable.shape_radius6_back)
             }
         }

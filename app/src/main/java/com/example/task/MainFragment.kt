@@ -1,7 +1,6 @@
 package com.example.task
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -12,13 +11,13 @@ import com.example.task.adapters.BannersAdapter
 import com.example.task.adapters.CategoriesAdapter
 import com.example.task.adapters.CategoryListener
 import com.example.task.adapters.DishesAdapter
-import com.example.task.databinding.FragmentHomePageBinding
+import com.example.task.databinding.FragmentMainBinding
 import com.example.task.requests.Category
 
-class HomePageFragment : Fragment(R.layout.fragment_home_page) {
+class MenuPageFragment : Fragment(R.layout.fragment_main) {
 
-    private lateinit var binding: FragmentHomePageBinding
-    val viewModel by viewModels<HomePageViewModel>()
+    private lateinit var binding: FragmentMainBinding
+    val viewModel by viewModels<MenuPageViewModel>()
 
     private lateinit var citiesAdapter: ArrayAdapter<String>
     private lateinit var bannersAdapter: BannersAdapter
@@ -27,21 +26,11 @@ class HomePageFragment : Fragment(R.layout.fragment_home_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentHomePageBinding.bind(view)
+        binding = com.example.task.databinding.FragmentMainBinding.bind(view)
         initialCitiesSpinner()
         initialBannersAdapter()
-        initialCategoriesAdapter()
-        initialDishesAdapter()
 
         bannersAdapter.items = viewModel.getBanners()
-
-        viewModel.categories.observe(viewLifecycleOwner) {
-            categoriesAdapter.items = it
-        }
-        viewModel.dishes.observe(viewLifecycleOwner) {
-            dishesAdapter.items = it
-            dishesAdapter.notifyDataSetChanged()
-        }
 
     }
 

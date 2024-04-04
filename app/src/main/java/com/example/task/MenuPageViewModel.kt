@@ -1,6 +1,5 @@
 package com.example.task
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +15,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class HomePageViewModel: ViewModel() {
+class MenuPageViewModel: ViewModel() {
 
     private var requestsInterface: RequestsInterface
 
@@ -35,7 +34,7 @@ class HomePageViewModel: ViewModel() {
         getCategories()
     }
 
-    fun getCities() : List<String> {
+    fun getCities(): List<String> {
         return listOf(
             "Москва",
             "Нижний Новгород",
@@ -53,7 +52,8 @@ class HomePageViewModel: ViewModel() {
 
     private fun getCategories() {
         viewModelScope.launch {
-            val allCategories = withContext(Dispatchers.IO) { requestsInterface.getCategories().categories }
+            val allCategories =
+                withContext(Dispatchers.IO) { requestsInterface.getCategories().categories }
             _categories.postValue(allCategories)
             getDishes(allCategories[0])
         }
@@ -64,17 +64,21 @@ class HomePageViewModel: ViewModel() {
             orderRequest += 1
             val order = orderRequest
             val listDishes = mutableListOf<ItemDish>()
-            val simpleDishes = withContext(Dispatchers.IO) { requestsInterface.getDishes(category?.strCategory ?: "") }
+            val simpleDishes = withContext(Dispatchers.IO) {
+                requestsInterface.getDishes(
+                    category?.strCategory ?: ""
+                )
+            }
             simpleDishes.meals.forEachIndexed() { index, it ->
                 if (order != orderRequest) cancel()
-                val aboutDish = withContext(Dispatchers.IO) { requestsInterface.getDishById(it.idMeal).meals[0] }
+                val aboutDish =
+                    withContext(Dispatchers.IO) { requestsInterface.getDishById(it.idMeal).meals[0] }
                 listDishes.add(aboutDish.toItemDish())
-                if (index % 8 == 7) {_dishes.postValue(listDishes)
+                if (index % 8 == 7) {
+                    _dishes.postValue(listDishes)
+                }
+                _dishes.postValue(listDishes)
             }
-            _dishes.postValue(listDishes)
         }
     }
-
-
-
 }

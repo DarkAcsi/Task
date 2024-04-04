@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:textColor="@color/back_color_text"
+            android:textColor="@color/back_color"
             android:textSize="14sp"
             tools:text="Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус" />
 
