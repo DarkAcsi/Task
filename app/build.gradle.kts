@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-};
+    kotlin("plugin.serialization")
+}
 
 android {
     namespace = "com.example.task"
@@ -57,4 +58,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 }

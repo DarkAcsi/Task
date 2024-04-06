@@ -1,5 +1,7 @@
 package com.example.task.requests
 
+import kotlinx.serialization.Serializable
+
 data class Dish(
     val strMeal: String,
     val strMealThumb: String,
@@ -101,9 +103,15 @@ data class AboutDishes(
     val meals: List<AboutDish>
 )
 
+@Serializable
 data class ItemDish(
     val idMeal: Long,
     val strMeal: String,
     val strMealThumb: String,
     val ingredients: String,
+)
+
+@Serializable
+data class ItemDishes(
+    val meals: List<ItemDish>,
 )
